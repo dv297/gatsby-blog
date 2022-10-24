@@ -1,62 +1,45 @@
 import * as React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 
-import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import "../components/BlogPost/BlogPost.css"
+import DefaultPageContainer from "../components/DefaultPageContainer/DefaultPageContainer"
 
-const BlogPostTemplate = ({
-  data: { previous, next, site, markdownRemark: post },
-  location,
-}) => {
-  const siteTitle = site.siteMetadata?.title || `Title`
+const BlogPostTemplate = props => {
+  const { data } = props
+
+  console.log(data)
+
+  if (!data) {
+    return null
+  }
+
+  const { markdownRemark: post } = data
 
   return (
-    <Layout location={location} title={siteTitle}>
-      <article
-        className="blog-post"
-        itemScope
-        itemType="http://schema.org/Article"
-      >
-        <header>
-          <h1 itemProp="headline">{post.frontmatter.title}</h1>
-          <p>{post.frontmatter.date}</p>
-        </header>
-        <section
-          dangerouslySetInnerHTML={{ __html: post.html }}
-          itemProp="articleBody"
-        />
-        <hr />
-        <footer>
-          <Bio />
-        </footer>
-      </article>
-      <nav className="blog-post-nav">
-        <ul
-          style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
-            padding: 0,
-          }}
-        >
-          <li>
-            {previous && (
-              <Link to={previous.fields.slug} rel="prev">
-                ← {previous.frontmatter.title}
-              </Link>
-            )}
-          </li>
-          <li>
-            {next && (
-              <Link to={next.fields.slug} rel="next">
-                {next.frontmatter.title} →
-              </Link>
-            )}
-          </li>
-        </ul>
-      </nav>
+    <Layout>
+      <DefaultPageContainer>
+        <div className="blog-post-container">
+          <div className="blog-post">
+            <h1 className="blog-post-title">{post.frontmatter.title}</h1>
+            <div className="blog-post-header">
+              <small className="blog-post-header-date">
+                {post.frontmatter.date}
+              </small>
+              <small className="blog-post-header-tags">
+                Tags: {post.frontmatter.tags.join(", ")}
+              </small>
+            </div>
+            <div>
+              <small>Time to Read: {post.timeToRead} minutes</small>
+            </div>
+            <div className="blog-post-content">
+              <div dangerouslySetInnerHTML={{ __html: post.html }} />
+            </div>
+          </div>
+        </div>
+      </DefaultPageContainer>
     </Layout>
   )
 }
@@ -73,16 +56,7 @@ export const Head = ({ data: { markdownRemark: post } }) => {
 export default BlogPostTemplate
 
 export const pageQuery = graphql`
-  query BlogPostBySlug(
-    $id: String!
-    $previousPostId: String
-    $nextPostId: String
-  ) {
-    site {
-      siteMetadata {
-        title
-      }
-    }
+  query BlogPostBySlug($id: String!) {
     markdownRemark(id: { eq: $id }) {
       id
       excerpt(pruneLength: 160)
@@ -91,22 +65,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
-      }
-    }
-    previous: markdownRemark(id: { eq: $previousPostId }) {
-      fields {
-        slug
-      }
-      frontmatter {
-        title
-      }
-    }
-    next: markdownRemark(id: { eq: $nextPostId }) {
-      fields {
-        slug
-      }
-      frontmatter {
-        title
+        tags
       }
     }
   }

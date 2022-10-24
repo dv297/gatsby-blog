@@ -7,22 +7,15 @@ import "./Navigation.css"
 
 interface NavigationProps {
   children: React.ReactNode
-  toggleSidebarMenu: () => void
 }
 
 const Navigation = (props: NavigationProps) => {
   return (
     <div className="navigation-container" {...props}>
       <nav className="nav-links">
-        <Link to="/" onClick={props.toggleSidebarMenu}>
-          Home
-        </Link>
-        <Link to="/resume" onClick={props.toggleSidebarMenu}>
-          About
-        </Link>
-        <Link to="/blog" onClick={props.toggleSidebarMenu}>
-          Blog
-        </Link>
+        <Link to="/">Home</Link>
+        <Link to="/resume">About</Link>
+        <Link to="/blog">Blog</Link>
         <div className="navigation-social-media">
           <a href="https://twitter.com/TheDanielVu" title="Twitter">
             <FaTwitterSquare className="navigation-social-media-icon" />
