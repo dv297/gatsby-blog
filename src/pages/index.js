@@ -1,62 +1,46 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
 
-import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import profilePicture from "../images/profile-optimized.jpg"
+import "./Home.css"
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
-  const posts = data.allMarkdownRemark.nodes
-
-  if (posts.length === 0) {
-    return (
-      <Layout location={location} title={siteTitle}>
-        <Bio />
-        <p>
-          No blog posts found. Add markdown posts to "content/blog" (or the
-          directory you specified for the "gatsby-source-filesystem" plugin in
-          gatsby-config.js).
-        </p>
-      </Layout>
-    )
-  }
 
   return (
     <Layout location={location} title={siteTitle}>
-      <Bio />
-      <ol style={{ listStyle: `none` }}>
-        {posts.map(post => {
-          const title = post.frontmatter.title || post.fields.slug
-
-          return (
-            <li key={post.fields.slug}>
-              <article
-                className="post-list-item"
-                itemScope
-                itemType="http://schema.org/Article"
-              >
-                <header>
-                  <h2>
-                    <Link to={post.fields.slug} itemProp="url">
-                      <span itemProp="headline">{title}</span>
-                    </Link>
-                  </h2>
-                  <small>{post.frontmatter.date}</small>
-                </header>
-                <section>
-                  <p
-                    dangerouslySetInnerHTML={{
-                      __html: post.frontmatter.description || post.excerpt,
-                    }}
-                    itemProp="description"
-                  />
-                </section>
-              </article>
-            </li>
-          )
-        })}
-      </ol>
+      <div className="home-body">
+        <div className="home-content">
+          <div className="profile-picture-container">
+            <img
+              src={profilePicture}
+              className="profile-picture"
+              alt="Daniel Vu"
+            />
+          </div>
+          <div className="skills-header-container">
+            <h1>Musician</h1>
+            <h1>Developer</h1>
+            <h1>Educator</h1>
+          </div>
+          <div className="home-text-container">
+            <h2 className="welcome-header">Hey! I'm Daniel Vu!</h2>
+            <p>
+              I graduated from the University of South Carolina with a B.S. in
+              Computer Science and moved to Kansas City to pursue a career in
+              Software Engineering. I love front-end development and I strongly
+              focus on creating a productive team environment by continuously
+              helping create fruitful, enjoyable development experiences and
+              helping others keep up to date with the latest technology stacks.
+              I enjoy giving talks, and I love finding new ways to promote
+              varying aspects of software engineering to developers and students
+              of all skill levels.
+            </p>
+          </div>
+        </div>
+      </div>
     </Layout>
   )
 }
@@ -75,19 +59,6 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
-      }
-    }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-      nodes {
-        excerpt
-        fields {
-          slug
-        }
-        frontmatter {
-          date(formatString: "MMMM DD, YYYY")
-          title
-          description
-        }
       }
     }
   }

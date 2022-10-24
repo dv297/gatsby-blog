@@ -1,0 +1,19 @@
+.default-page-container {
+  font-family: 'Open Sans', sans-serif;
+  padding: 20px;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: #FEFEFE;
+  border-radius: 5px 5px 5px 5px;
+  -moz-border-radius: 5px 5px 5px 5px;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  min-width: 70%;
+  max-width: 1024px;
+}
+
+@media only screen and (max-width: 600px) {
+  .default-page-container {
+    min-width: 90%;
+    padding: 10px 20px;
+  }
+}
