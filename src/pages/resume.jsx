@@ -1,6 +1,6 @@
 import React from "react"
 import { withPrefix } from "gatsby"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 
 import "./Resume.css"
 import DefaultPageContainer from "../components/DefaultPageContainer/DefaultPageContainer"
