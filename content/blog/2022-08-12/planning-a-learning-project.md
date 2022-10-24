@@ -1,9 +1,9 @@
 ---
-path: '/planning-a-learning-project'
-date: '2022-08-12'
-title: 'Planning a Learning Project'
+path: "/planning-a-learning-project"
+date: "2022-08-12"
+title: "Planning a Learning Project"
 description: "The benefits of building a project soley for learning and steps to help make sure you learn."
-tags: ['Development', 'Software Engineering']
+tags: ["Development", "Software Engineering"]
 ---
 
 **tl;dr:** The benefits of building a project soley for learning and steps to help make sure you learn.
@@ -155,7 +155,7 @@ example, my next thought went into "what are the performance implications of my 
 
 I opened the React Dev Tools, and enabled the "Highlight updates when component renders" option.
 
-![Screenshot of the React Dev Tools showing the "Highlight updates when component renders" option](./react-dev-tool.png 'React Dev Tools')
+![Screenshot of the React Dev Tools showing the "Highlight updates when component renders" option](./react-dev-tool.png "React Dev Tools")
 
 From there, I played with the application.
 

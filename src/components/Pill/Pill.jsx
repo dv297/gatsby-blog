@@ -1,6 +1,6 @@
-import React from 'react'
+import React from "react"
 
-import './Pill.css'
+import "./Pill.css"
 
 const Pill = ({ children, ...restProps }) => {
   return (

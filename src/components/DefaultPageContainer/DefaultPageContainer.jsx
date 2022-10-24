@@ -1,6 +1,6 @@
-import React from 'react'
+import React from "react"
 
-import './DefaultPageContainer.css'
+import "./DefaultPageContainer.css"
 
 const DefaultPageContainer = ({ children }) => {
   return <main className="default-page-container">{children}</main>

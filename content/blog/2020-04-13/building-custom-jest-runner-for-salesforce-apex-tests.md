@@ -1,9 +1,9 @@
 ---
-path: '/building-custom-jest-runner-for-salesforce-apex-tests'
-date: '2020-04-13'
-title: 'Building a Custom Jest Runner for Salesforce Apex Tests'
+path: "/building-custom-jest-runner-for-salesforce-apex-tests"
+date: "2020-04-13"
+title: "Building a Custom Jest Runner for Salesforce Apex Tests"
 description: "Creating a proof of concept showing what it might be like to run Salesforce Apex tests using Jest."
-tags: ['Development', 'NPM', 'JavaScript', 'Jest', 'Salesforce']
+tags: ["Development", "NPM", "JavaScript", "Jest", "Salesforce"]
 ---
 
 **tl;dr:** Created a proof of concept showing what it might be like to run Salesforce Apex tests using Jest.
@@ -77,8 +77,8 @@ runner. To begin, we install create-jest-runner and create an "entry point" to o
 
 ```javascript
 // index.js
-const { createJestRunner } = require('create-jest-runner')
-module.exports = createJestRunner(require.resolve('./run.js'))
+const { createJestRunner } = require("create-jest-runner")
+module.exports = createJestRunner(require.resolve("./run.js"))
 ```
 
 From there, we create a `run.js` file that contains what happens when we run the tests.
@@ -103,18 +103,21 @@ way to do this in NodeJS but the API for shelljs is easy to understand and relat
 replace the filename in the command using the builtin `path` library.
 
 ```javascript
-const path = require('path')
+const path = require("path")
 
 module.exports = options => {
   const { testPath } = options
 
-  const testFileName = path.basename(testPath, '.cls')
+  const testFileName = path.basename(testPath, ".cls")
 
   // Send request to Salesforce to execute tests
   const testExecution = JSON.parse(
-    shell.exec(`sfdx force:apex:test:run --tests ${testFileName} --resultformat human --loglevel error --json`, {
-      silent: true,
-    })
+    shell.exec(
+      `sfdx force:apex:test:run --tests ${testFileName} --resultformat human --loglevel error --json`,
+      {
+        silent: true,
+      }
+    )
   )
 }
 ```
@@ -156,10 +159,10 @@ provides two utility methods for reporting test results: `pass` and `fail`. Reas
 [chalk](https://www.npmjs.com/package/chalk), which just lets me choose the color of the output I see in the terminal.
 
 ```javascript
-const path = require('path')
-const { pass, fail } = require('create-jest-runner')
-const shell = require('shelljs')
-const chalk = require('chalk')
+const path = require("path")
+const { pass, fail } = require("create-jest-runner")
+const shell = require("shelljs")
+const chalk = require("chalk")
 
 module.exports = options => {
   const { testPath } = options
@@ -167,26 +170,33 @@ module.exports = options => {
   const start = Date.now()
   const end = Date.now()
 
-  const testFileName = path.basename(testPath, '.cls')
+  const testFileName = path.basename(testPath, ".cls")
   // Send request to Salesforce to execute tests
   const testExecution = JSON.parse(
-    shell.exec(`sfdx force:apex:test:run --tests ${testFileName} --resultformat human --loglevel error --json`, {
-      silent: true,
-    })
+    shell.exec(
+      `sfdx force:apex:test:run --tests ${testFileName} --resultformat human --loglevel error --json`,
+      {
+        silent: true,
+      }
+    )
   )
 
-  if (testExecution.result.summary.outcome !== 'Failed') {
+  if (testExecution.result.summary.outcome !== "Failed") {
     return pass({ start, end, test: { path: testPath } })
   } else {
-    const failedTests = testExecution.result.tests.filter(testResult => !didIndividualTestPass(testResult))
+    const failedTests = testExecution.result.tests.filter(
+      testResult => !didIndividualTestPass(testResult)
+    )
     const errorMessages = failedTests
       .map(
         testResult =>
-          `${chalk.yellowBright(testResult.FullName)}  -  ${chalk.red(testResult.Message)}
+          `${chalk.yellowBright(testResult.FullName)}  -  ${chalk.red(
+            testResult.Message
+          )}
 Caused by ${testResult.StackTrace}
 `
       )
-      .join('\n')
+      .join("\n")
 
     return fail({
       start,
@@ -201,7 +211,7 @@ Caused by ${testResult.StackTrace}
 }
 
 function didIndividualTestPass(testResult) {
-  return testResult.Outcome !== 'Fail'
+  return testResult.Outcome !== "Fail"
 }
 ```
 
@@ -211,16 +221,22 @@ all of this!), because we never deployed it, you would always be running an olde
 
 ```javascript
 // Added this: Deploy the latest test changes
-shell.exec(`sfdx force:source:deploy --sourcepath ${testPath} --json --loglevel fatal`, {
-  silent: true,
-})
+shell.exec(
+  `sfdx force:source:deploy --sourcepath ${testPath} --json --loglevel fatal`,
+  {
+    silent: true,
+  }
+)
 
-const testFileName = path.basename(testPath, '.cls')
+const testFileName = path.basename(testPath, ".cls")
 // Send request to Salesforce to execute tests
 const testExecution = JSON.parse(
-  shell.exec(`sfdx force:apex:test:run --tests ${testFileName} --resultformat human --loglevel error --json`, {
-    silent: true,
-  })
+  shell.exec(
+    `sfdx force:apex:test:run --tests ${testFileName} --resultformat human --loglevel error --json`,
+    {
+      silent: true,
+    }
+  )
 )
 ```
 
@@ -234,18 +250,21 @@ We can create a new Salesforce DX project using VS Code. We add a package.json s
 a jest.config.js to point to our new jest-apex-test-runner directory.
 
 ```javascript
-const { defaults } = require('jest-config')
-const path = require('path')
+const { defaults } = require("jest-config")
+const path = require("path")
 
 module.exports = {
-  moduleFileExtensions: [...defaults.moduleFileExtensions, 'cls'],
-  testMatch: ['<rootDir>/force-app/**/*Test.cls'],
-  watchPlugins: ['jest-watch-typeahead/filename', 'jest-watch-typeahead/testname'],
+  moduleFileExtensions: [...defaults.moduleFileExtensions, "cls"],
+  testMatch: ["<rootDir>/force-app/**/*Test.cls"],
+  watchPlugins: [
+    "jest-watch-typeahead/filename",
+    "jest-watch-typeahead/testname",
+  ],
   // This assumes new SFDX project has the same parent directory as our jest-apex-test-runner
   // For example,
   // /workspace/jest-apex-test-runner
   // /workspace/sfdx-project
-  runner: path.join(__dirname, '..', 'jest-apex-test-runner'),
+  runner: path.join(__dirname, "..", "jest-apex-test-runner"),
 }
 ```
 
