@@ -5,7 +5,6 @@ import "./BlogPostListing.css"
 import Pill from "../../components/Pill/Pill"
 
 const BlogPostListing = ({ post }) => {
-  console.log(post)
   return (
     <div className="blog-post-listing">
       <Link to={post.fields.slug} className="blog-post-listing-title">

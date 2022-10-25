@@ -6,13 +6,14 @@ import "./Resume.css"
 import DefaultPageContainer from "../components/DefaultPageContainer/DefaultPageContainer"
 import ExperienceCard from "../components/ExperienceCard/ExperienceCard"
 import Pill from "../components/Pill/Pill"
-import Layout from "../components/Layout"
+import Layout from "../components/layout"
 
 import cernerHackthonImage from "../images/cerner-hackathon.jpg"
 import hackkcImage from "../images/hackkc.jpg"
 import hackMidwestImage from "../images/hackathon.jpg"
 import drummingImage from "../images/drumming.jpg"
 import bootcampImage from "../images/bootcamp.jpg"
+import Seo from "../components/seo"
 
 const getPillList = list => (
   <div style={{ display: "flex", flexFlow: "row wrap" }}>
@@ -346,6 +347,8 @@ const Resume = ({ data, location }) => {
 }
 
 export default Resume
+
+export const Head = () => <Seo title="About" />
 
 export const pageQuery = graphql`
   query {

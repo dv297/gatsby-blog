@@ -124,7 +124,7 @@ familiar with:
 
 For me, choosing the right tools meant I wasted less time setting everything up and more time practicing what I wanted
 to practice. **_Once you pick the tools, stick with them._** As software engineers, it can be tempting to want to try
-every new shiny piece of technology. But most of the times, this just serves as a distraction from the main skill you
+every new shiny piece of technology. But often, this just serves as a distraction from the main skill you
 want to learn.
 
 ## Tip #3: Find the questions you want answered in your learning area

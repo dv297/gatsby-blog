@@ -3,19 +3,13 @@ import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import "../components/BlogPost/BlogPost.css"
+import "../pages/BlogPost.css"
 import DefaultPageContainer from "../components/DefaultPageContainer/DefaultPageContainer"
 
 const BlogPostTemplate = props => {
-  const { data } = props
-
-  console.log(data)
-
-  if (!data) {
-    return null
-  }
-
-  const { markdownRemark: post } = data
+  const {
+    data: { markdownRemark: post },
+  } = props
 
   return (
     <Layout>
