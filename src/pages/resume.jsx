@@ -8,12 +8,8 @@ import ExperienceCard from "../components/ExperienceCard/ExperienceCard"
 import Pill from "../components/Pill/Pill"
 import Layout from "../components/layout"
 
-import cernerHackthonImage from "../images/cerner-hackathon.jpg"
-import hackkcImage from "../images/hackkc.jpg"
-import hackMidwestImage from "../images/hackathon.jpg"
-import drummingImage from "../images/drumming.jpg"
-import bootcampImage from "../images/bootcamp.jpg"
 import Seo from "../components/seo"
+import { StaticImage } from "gatsby-plugin-image"
 
 const getPillList = list => (
   <div style={{ display: "flex", flexFlow: "row wrap" }}>
@@ -265,8 +261,8 @@ const Resume = ({ data, location }) => {
         <hr />
         <h2>Experiences, for fun!</h2>
         <div className="resume-experience group">
-          <img
-            src={bootcampImage}
+          <StaticImage
+            src="../images/bootcamp.jpg"
             alt="My 2019 Bootcamp Class"
             style={{ marginBottom: 10 }}
           />
@@ -283,9 +279,10 @@ const Resume = ({ data, location }) => {
         </div>
         <div className="resume-experiences ">
           <div className="resume-experience group">
-            <img
-              src={cernerHackthonImage}
+            <StaticImage
+              src="../images/cerner-hackathon.jpg"
               alt="Winning the RevenueCycle 2018 Hackathon"
+              className="resume-experience-image"
             />
             <p>
               Cerner hosts various hackathons, and my partner and I won
@@ -300,7 +297,11 @@ const Resume = ({ data, location }) => {
             </p>
           </div>
           <div className="resume-experience group">
-            <img src={hackkcImage} alt="Participating in HackKC 2017" />
+            <StaticImage
+              src="../images/hackkc.jpg"
+              alt="Participating in HackKC 2017"
+              className="resume-experience-image"
+            />
             <p>
               I participated in Code for KC's 2017 hackathon "HackKC". Code for
               KC, as they put it, are "a group of civic-minded geeks who
@@ -312,9 +313,10 @@ const Resume = ({ data, location }) => {
             </p>
           </div>
           <div className="resume-experience group">
-            <img
-              src={hackMidwestImage}
+            <StaticImage
+              src="../images/hackathon.jpg"
               alt="Participating in Hack Midwest 2018"
+              className="resume-experience-image"
             />
             <p>
               My friends and I participated in Hack Midwest 2018. We were
@@ -326,9 +328,10 @@ const Resume = ({ data, location }) => {
             </p>
           </div>
           <div className="resume-experience group">
-            <img
-              src={drummingImage}
+            <StaticImage
+              src="../images/drumming.jpg"
               alt="Drumming for the LGBA 2018 Conference"
+              className="resume-experience-image"
             />
             <p>
               Along with coding, I enjoy drumming in my spare time. I was

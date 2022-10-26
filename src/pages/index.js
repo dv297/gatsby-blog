@@ -1,9 +1,9 @@
 import * as React from "react"
 import { graphql } from "gatsby"
+import { StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import profilePicture from "../images/profile-optimized.jpg"
 import "./Home.css"
 
 const BlogIndex = ({ data, location }) => {
@@ -14,10 +14,12 @@ const BlogIndex = ({ data, location }) => {
       <div className="home-body">
         <div className="home-content">
           <div className="profile-picture-container">
-            <img
-              src={profilePicture}
+            <StaticImage
+              src="../images/profile-optimized.jpg"
               className="profile-picture"
               alt="Daniel Vu"
+              imgStyle={{ objectFit: "contain" }}
+              style={{ width: "174px" }}
             />
           </div>
           <div className="skills-header-container">
