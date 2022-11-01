@@ -15,6 +15,7 @@ const Navigation = (props: NavigationProps) => {
       <nav className="nav-links">
         <Link to="/">Home</Link>
         <Link to="/resume">About</Link>
+        <Link to="/projects">Projects</Link>
         <Link to="/blog">Blog</Link>
         <div className="navigation-social-media">
           <a href="https://twitter.com/TheDanielVu" title="Twitter">
