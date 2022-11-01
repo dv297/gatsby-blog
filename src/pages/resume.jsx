@@ -73,9 +73,32 @@ const Resume = ({ data, location }) => {
         <hr />
         <h2>Professional Experiences</h2>
         <ExperienceCard
+          company="A Place for Mom"
+          jobTitle="Senior Software Engineer"
+          timeWorked="May 2021 - August 2022"
+        />
+        <ul>
+          <li>
+            Led and developed the migration of an internal sales system to a
+            modern technology stack using React, TypeScript, and GraphQL.
+          </li>
+          <li>
+            Designed and architected various projects, including drafting RFC's
+            and POC's for state management architecture across multiple teams.
+          </li>
+          <li>
+            Worked with product owners, directors, designers, and project
+            managers to plan and implement incoming projects.
+          </li>
+          <li>
+            Help coordinate release cycles between multiple teams based on
+            technical dependencies.
+          </li>
+        </ul>
+        <ExperienceCard
           company="Rx Savings Solutions"
           jobTitle="Senior Software Engineer / Engineering Manager"
-          timeWorked="November 2019 - Present"
+          timeWorked="November 2019 - April 2021"
         />
         <ul>
           <li>
