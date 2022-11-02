@@ -1,18 +1,14 @@
 import React from "react"
-import { withPrefix } from "gatsby"
 import { graphql } from "gatsby"
-
-import "./Resume.css"
-import DefaultPageContainer from "../components/DefaultPageContainer/DefaultPageContainer"
-import ExperienceCard from "../components/ExperienceCard/ExperienceCard"
-import Pill from "../components/Pill/Pill"
-import Layout from "../components/layout"
-
-import Seo from "../components/seo"
 import { StaticImage } from "gatsby-plugin-image"
 
+import DefaultPageContainer from "../components/DefaultPageContainer/DefaultPageContainer"
+import Pill from "../components/Pill/Pill"
+import Layout from "../components/layout"
+import Seo from "../components/seo"
+
 const getPillList = list => (
-  <div style={{ display: "flex", flexFlow: "row wrap" }}>
+  <div className="flex flex-wrap">
     {list.map(entry => (
       <Pill key={entry}>{entry}</Pill>
     ))}
@@ -21,14 +17,14 @@ const getPillList = list => (
 
 const ProjectListing = ({ title, description, technologies, image }) => {
   return (
-    <section className="flex flex-col xl:flex-row gap-8 mb-8">
+    <section className="mb-20 flex flex-col gap-8 lg:mb-16 xl:flex-row">
       <div className="flex-1">
-        <h2>{title}</h2>
-        {description}
-        <p className="font-bolder text-lg">Built with:</p>
+        <h2 className="mb-4 text-3xl font-semibold">{title}</h2>
+        <div className="mb-4">{description}</div>
+        <p className="mb-4 text-lg font-bold">Built with:</p>
         {getPillList(technologies)}
       </div>
-      <div className="flex-1 flex justify-center items-center">{image}</div>
+      <div className="flex flex-1 items-center justify-center">{image}</div>
     </section>
   )
 }
@@ -39,12 +35,14 @@ const Resume = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <DefaultPageContainer>
-        <h1>Projects</h1>
-        <span>
-          For code for the following project as well as more projects that I've
-          worked on, visit my{" "}
-          <a href="https://github.com/dv297">Github profile</a>.
-        </span>
+        <div className="mb-8">
+          <h1 className="mb-4 text-3xl font-bold">Projects</h1>
+          <p>
+            For code for the following project as well as more projects that
+            I've worked on, visit my{" "}
+            <a href="https://github.com/dv297">Github profile</a>.
+          </p>
+        </div>
         <ProjectListing
           title="Planner"
           image={

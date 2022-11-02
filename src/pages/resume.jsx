@@ -19,13 +19,19 @@ const getPillList = list => (
   </div>
 )
 
+const ResumeTechnologyList = ({ children }) => {
+  return (
+    <ul className="grid list-disc grid-cols-1 sm:grid-cols-2">{children}</ul>
+  )
+}
+
 const Resume = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
 
   return (
     <Layout location={location} title={siteTitle}>
       <DefaultPageContainer>
-        <h1>Resume</h1>
+        <h1 className="text-4xl font-bold">Resume</h1>
         <small>
           <a href={withPrefix("/resume.pdf")}>
             Printable resume with full descriptions
@@ -33,7 +39,7 @@ const Resume = ({ data, location }) => {
         </small>
         <h2>Technologies Worked With</h2>
         <h3>Languages, Frameworks, and Libraries</h3>
-        <ul className="resume-technologylist">
+        <ResumeTechnologyList>
           <li>React</li>
           <li>Jest</li>
           <li>Redux</li>
@@ -54,9 +60,9 @@ const Resume = ({ data, location }) => {
           <li>Python</li>
           <li>PHP</li>
           <li>SQL</li>
-        </ul>
+        </ResumeTechnologyList>
         <h3>Tools</h3>
-        <ul className="resume-technologylist">
+        <ResumeTechnologyList>
           <li>Jenkins</li>
           <li>Docker</li>
           <li>Git</li>
@@ -64,7 +70,7 @@ const Resume = ({ data, location }) => {
           <li>Grunt</li>
           <li>Amazon Web Services</li>
           <li>Google App Engine</li>
-        </ul>
+        </ResumeTechnologyList>
         <h3>Skills/ Training</h3>
         <ul>
           <li>Trained and well-versed in Agile</li>
@@ -283,7 +289,7 @@ const Resume = ({ data, location }) => {
         </ExperienceCard>
         <hr />
         <h2>Experiences, for fun!</h2>
-        <div className="resume-experience group">
+        <div className="clear-both mb-10">
           <StaticImage
             src="../images/bootcamp.jpg"
             alt="My 2019 Bootcamp Class"
@@ -300,12 +306,12 @@ const Resume = ({ data, location }) => {
             the end of the semester.
           </p>
         </div>
-        <div className="resume-experiences ">
-          <div className="resume-experience group">
+        <div className="resume-experiences">
+          <div className="clear-both mb-10">
             <StaticImage
               src="../images/cerner-hackathon.jpg"
               alt="Winning the RevenueCycle 2018 Hackathon"
-              className="resume-experience-image"
+              className="float-left mr-5 max-h-[400px] max-w-full"
             />
             <p>
               Cerner hosts various hackathons, and my partner and I won
