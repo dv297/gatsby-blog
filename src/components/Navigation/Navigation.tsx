@@ -21,7 +21,7 @@ const NavLink = ({ to, label }) => {
 const SocialMediaLink = ({ to, title, Icon }) => {
   return (
     <a href={to} title={title}>
-      <Icon className="navigation-social-media-icon" />
+      <Icon className="h-9 w-9 text-[#bf6e67] hover:text-white" />
     </a>
   )
 }
@@ -36,7 +36,7 @@ const Navigation = (props: NavigationProps) => {
           <NavLink to="/projects" label="Projects" />
           <NavLink to="/blog" label="Blog" />
         </div>
-        <div className="hidden flex-shrink lg:block">
+        <div className="hidden flex-shrink flex-row gap-2 lg:flex lg:flex-row">
           <SocialMediaLink
             to="https://twitter.com/TheDanielVu"
             title="Twitter"
