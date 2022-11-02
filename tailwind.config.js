@@ -5,7 +5,11 @@ module.exports = {
     "./src/components/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      accentColor: {
+        "accent-red": "#7B2A21",
+      },
+    },
   },
   plugins: [],
   corePlugins: {
