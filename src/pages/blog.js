@@ -13,7 +13,7 @@ const BlogIndex = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <DefaultPageContainer>
-        <h1>Blog Posts</h1>
+        <h1 className="mb-6 text-4xl">Blog Posts</h1>
         <div>
           {posts.map(post => {
             return <BlogPostListing key={post.fields.slug} post={post} />
