@@ -1,0 +1,39 @@
+{
+  "timestamp": 1667586995086,
+  "hash": "af0238363a34125e6638879eaaa5c82c",
+  "assets": {
+    "/2018-06-07/introduction/": {
+      "https://fonts.gstatic.com/s/lato/v23/S6uyw4BMUTPHjx4wXiWtFCc.woff2": true
+    },
+    "/2018-06-12/designing-shared-npm-scripts/": {
+      "https://fonts.gstatic.com/s/lato/v23/S6uyw4BMUTPHjx4wXiWtFCc.woff2": true
+    },
+    "/2020-04-13/building-custom-jest-runner-for-salesforce-apex-tests/": {
+      "https://fonts.gstatic.com/s/lato/v23/S6uyw4BMUTPHjx4wXiWtFCc.woff2": true
+    },
+    "/2022-08-12/planning-a-learning-project/": {
+      "https://fonts.gstatic.com/s/lato/v23/S6uyw4BMUTPHjx4wXiWtFCc.woff2": true
+    },
+    "/dev-404-page/": {
+      "https://fonts.gstatic.com/s/lato/v23/S6uyw4BMUTPHjx4wXiWtFCc.woff2": true
+    },
+    "/404/": {
+      "https://fonts.gstatic.com/s/lato/v23/S6uyw4BMUTPHjx4wXiWtFCc.woff2": true
+    },
+    "/404.html": {
+      "https://fonts.gstatic.com/s/lato/v23/S6uyw4BMUTPHjx4wXiWtFCc.woff2": true
+    },
+    "/blog/": {
+      "https://fonts.gstatic.com/s/lato/v23/S6uyw4BMUTPHjx4wXiWtFCc.woff2": true
+    },
+    "/": {
+      "https://fonts.gstatic.com/s/lato/v23/S6uyw4BMUTPHjx4wXiWtFCc.woff2": true
+    },
+    "/projects/": {
+      "https://fonts.gstatic.com/s/lato/v23/S6uyw4BMUTPHjx4wXiWtFCc.woff2": true
+    },
+    "/resume/": {
+      "https://fonts.gstatic.com/s/lato/v23/S6uyw4BMUTPHjx4wXiWtFCc.woff2": true
+    }
+  }
+}

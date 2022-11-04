@@ -1,6 +1,7 @@
 import React from "react"
 import { withPrefix } from "gatsby"
 import { graphql } from "gatsby"
+import { StaticImage } from "gatsby-plugin-image"
 
 import "./Resume.css"
 import DefaultPageContainer from "../components/DefaultPageContainer/DefaultPageContainer"
@@ -9,7 +10,6 @@ import Pill from "../components/Pill/Pill"
 import Layout from "../components/layout"
 
 import Seo from "../components/seo"
-import { StaticImage } from "gatsby-plugin-image"
 
 const getPillList = list => (
   <div style={{ display: "flex", flexFlow: "row wrap" }}>
@@ -19,108 +19,128 @@ const getPillList = list => (
   </div>
 )
 
+const ResumeTechnologyList = ({ children }) => {
+  return (
+    <ul className="mb-4 grid list-disc grid-cols-1 pl-6 sm:grid-cols-2 md:pl-10">
+      {children}
+    </ul>
+  )
+}
+
 const Resume = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
 
   return (
     <Layout location={location} title={siteTitle}>
       <DefaultPageContainer>
-        <h1>Resume</h1>
-        <small>
-          <a href={withPrefix("/resume.pdf")}>
-            Printable resume with full descriptions
-          </a>
-        </small>
-        <h2>Technologies Worked With</h2>
-        <h3>Languages, Frameworks, and Libraries</h3>
-        <ul className="resume-technologylist">
-          <li>React</li>
-          <li>Jest</li>
-          <li>Redux</li>
-          <li>Vue.js</li>
-          <li>JavaScript (ES2015+)</li>
-          <li>Storybook</li>
-          <li>Node.JS</li>
-          <li>MongoDB</li>
-          <li>GraphQL</li>
-          <li>Socket.IO</li>
-          <li>Ruby on Rails</li>
-          <li>WebRTC</li>
-          <li>Android Development</li>
-          <li>HTML</li>
-          <li>Java</li>
-          <li>CSS</li>
-          <li>C++</li>
-          <li>Python</li>
-          <li>PHP</li>
-          <li>SQL</li>
-        </ul>
-        <h3>Tools</h3>
-        <ul className="resume-technologylist">
-          <li>Jenkins</li>
-          <li>Docker</li>
-          <li>Git</li>
-          <li>Webpack</li>
-          <li>Grunt</li>
-          <li>Amazon Web Services</li>
-          <li>Google App Engine</li>
-        </ul>
-        <h3>Skills/ Training</h3>
-        <ul>
-          <li>Trained and well-versed in Agile</li>
-          <li>Enjoys mentoring and sharing knowledge</li>
-        </ul>
-        <hr />
-        <h2>Professional Experiences</h2>
+        <h1 className="mb-6 text-4xl font-bold">Resume</h1>
+        <a
+          href={withPrefix("/resume.pdf")}
+          className="mb-6 text-sm font-thin text-blue-700 underline"
+        >
+          Printable resume with full descriptions
+        </a>
+        <div className="mb-8">
+          <h2 className="mt-4 mb-4 text-3xl">Technologies Worked With</h2>
+          <h3 className="mb-2 text-xl font-bold">
+            Languages, Frameworks, and Libraries
+          </h3>
+          <ResumeTechnologyList>
+            <li>React</li>
+            <li>TypeScript</li>
+            <li>Next.js</li>
+            <li>Redux</li>
+            <li>Jest</li>
+            <li>PostgreSQL</li>
+            <li>Prisma</li>
+            <li>Vue.js</li>
+            <li>TailwindCSS</li>
+            <li>Storybook</li>
+            <li>JavaScript (ES2015+)</li>
+            <li>Node.JS</li>
+            <li>MongoDB</li>
+            <li>GraphQL</li>
+            <li>Socket.IO</li>
+            <li>Ruby on Rails</li>
+            <li>WebRTC</li>
+            <li>Android Development</li>
+            <li>HTML</li>
+            <li>Java</li>
+            <li>CSS</li>
+            <li>Python</li>
+            <li>PHP</li>
+            <li>SQL</li>
+          </ResumeTechnologyList>
+          <h3 className="mb-2 text-xl font-bold">Tools</h3>
+          <ResumeTechnologyList>
+            <li>Jenkins</li>
+            <li>Docker</li>
+            <li>Git</li>
+            <li>Webpack</li>
+            <li>Grunt</li>
+            <li>Amazon Web Services</li>
+            <li>Google App Engine</li>
+          </ResumeTechnologyList>
+          <h3 className="mb-2 text-xl font-bold">Skills/ Training</h3>
+          <ResumeTechnologyList>
+            <li>Trained and well-versed in Agile</li>
+            <li>Enjoys mentoring and sharing knowledge</li>
+          </ResumeTechnologyList>
+        </div>
+        <hr className="my-4" />
+        <h2 className="mb-4 text-3xl">Professional Experiences</h2>
         <ExperienceCard
           company="A Place for Mom"
           jobTitle="Senior Software Engineer"
           timeWorked="May 2021 - August 2022"
-        />
-        <ul>
-          <li>
-            Led and developed the migration of an internal sales system to a
-            modern technology stack using React, TypeScript, and GraphQL.
-          </li>
-          <li>
-            Designed and architected various projects, including drafting RFC's
-            and POC's for state management architecture across multiple teams.
-          </li>
-          <li>
-            Worked with product owners, directors, designers, and project
-            managers to plan and implement incoming projects.
-          </li>
-          <li>
-            Help coordinate release cycles between multiple teams based on
-            technical dependencies.
-          </li>
-        </ul>
+        >
+          <ul className="mb-2 list-disc pl-6 md:pl-10">
+            <li>
+              Led and developed the migration of an internal sales system to a
+              modern technology stack using React, TypeScript, and GraphQL.
+            </li>
+            <li>
+              Designed and architected various projects, including drafting
+              RFC's and POC's for state management architecture across multiple
+              teams.
+            </li>
+            <li>
+              Worked with product owners, directors, designers, and project
+              managers to plan and implement incoming projects.
+            </li>
+            <li>
+              Help coordinate release cycles between multiple teams based on
+              technical dependencies.
+            </li>
+          </ul>
+        </ExperienceCard>
         <ExperienceCard
           company="Rx Savings Solutions"
           jobTitle="Senior Software Engineer / Engineering Manager"
           timeWorked="November 2019 - April 2021"
-        />
-        <ul>
-          <li>
-            Led multiple frontend teams as company grew from a small startup to
-            a more standard enterprise environment.
-          </li>
-          <li>
-            Collaborated with business stakeholders and project managers to
-            design, estimate, and deliver projects using different technologies
-            such as Vue.js, React, Salesforce, and PHP.
-          </li>
-          <li>
-            Mentored and coached teams to instill an enterprise engineering
-            mindset.
-          </li>
-        </ul>
+        >
+          <ul className="mb-2 list-disc pl-6 md:pl-10">
+            <li>
+              Led multiple frontend teams as company grew from a small startup
+              to a more standard enterprise environment.
+            </li>
+            <li>
+              Collaborated with business stakeholders and project managers to
+              design, estimate, and deliver projects using different
+              technologies such as Vue.js, React, Salesforce, and PHP.
+            </li>
+            <li>
+              Mentored and coached teams to instill an enterprise engineering
+              mindset.
+            </li>
+          </ul>
+        </ExperienceCard>
         <ExperienceCard
           company="Cerner Corporation"
           jobTitle="Senior Software Engineer"
           timeWorked="January 2016 – November 2019"
         >
-          <ul>
+          <ul className="mb-2 list-disc pl-6 md:pl-10">
             <li>
               Developed React single page applications for scheduling patients
               in ambulatory and acute scenarios
@@ -167,7 +187,7 @@ const Resume = ({ data, location }) => {
           jobTitle="Full-stack Web Development Bootcamp Instructor"
           timeWorked="November 2018 – Present"
         >
-          <ul>
+          <ul className="mb-2 list-disc pl-6 md:pl-10">
             <li>Led instructional courses on Full-stack Web development</li>
             <li>
               Taught students who are new to programming the fundamentals of web
@@ -195,7 +215,7 @@ const Resume = ({ data, location }) => {
           jobTitle="Android Developer"
           timeWorked="September 2014 – December 2015"
         >
-          <ul>
+          <ul className="mb-2 list-disc pl-6 md:pl-10">
             <li>Led seminars on Android development</li>
             <li>
               Worked with a team to develop an Android app to help triage
@@ -221,7 +241,7 @@ const Resume = ({ data, location }) => {
           jobTitle="Database Platform Operations Intern"
           timeWorked="May 2015 - August 2015"
         >
-          <ul>
+          <ul className="mb-2 list-disc pl-6 md:pl-10">
             <li>Migrated and hosted Enterprise databases</li>
             <li>
               Helped automate processes using Powershell scripts and metrics
@@ -247,7 +267,7 @@ const Resume = ({ data, location }) => {
           jobTitle="Web Business Analyst Intern"
           timeWorked="May 2014 - September 2014"
         >
-          <ul>
+          <ul className="mb-2 list-disc pl-6 md:pl-10">
             <li>
               Managed new digital projects to promote company partners and
               products
@@ -261,33 +281,33 @@ const Resume = ({ data, location }) => {
           <br />
           {getPillList(["PHP", "JavaScript", "HTML", "CSS"])}
         </ExperienceCard>
-        <hr />
-        <h2>Talks Given</h2>
-        <ul>
+        <hr className="my-4" />
+        <h2 className="text-3xl">Talks Given</h2>
+        <ul className="list-disc pl-6 md:pl-10">
           <li>React Composition Patterns - March 2020</li>
           <li>Designing and Starting a React Project - March 2018</li>
           <li>Testing React Components - October 2017</li>
           <li>Managing Internal and UI-Reflected State - June 2017</li>
         </ul>
-        <hr />
-        <h2>Education</h2>
+        <hr className="my-4" />
+        <h2 className="mb-4 text-3xl">Education</h2>
         <ExperienceCard
           company="University of South Carolina, Honors College"
           jobTitle="B.S. in Computer Science"
           timeWorked="December 2015"
         >
-          <ul>
+          <ul className="list-disc pl-6 md:pl-10">
             <li>Minor in Music</li>
             <li>GPA: 3.829</li>
           </ul>
         </ExperienceCard>
-        <hr />
-        <h2>Experiences, for fun!</h2>
-        <div className="resume-experience group">
+        <hr className="my-4" />
+        <h2 className="mb-4 text-3xl">Experiences, for fun!</h2>
+        <div className="clear-both mb-10">
           <StaticImage
             src="../images/bootcamp.jpg"
             alt="My 2019 Bootcamp Class"
-            style={{ marginBottom: 10 }}
+            className="mb-4"
           />
           <p>
             In the Fall of 2018, I was given the incredible opportunity to teach
@@ -300,8 +320,8 @@ const Resume = ({ data, location }) => {
             the end of the semester.
           </p>
         </div>
-        <div className="resume-experiences ">
-          <div className="resume-experience group">
+        <div className="resume-experiences flex flex-col gap-y-4">
+          <div className="resume-experience">
             <StaticImage
               src="../images/cerner-hackathon.jpg"
               alt="Winning the RevenueCycle 2018 Hackathon"

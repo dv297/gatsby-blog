@@ -13,6 +13,7 @@ module.exports = {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: ["Lato", "Open Sans"],
+        display: "swap",
       },
     },
     `gatsby-plugin-image`,

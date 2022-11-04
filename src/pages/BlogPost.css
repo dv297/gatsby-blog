@@ -1,39 +1,102 @@
-.blog-post-title {
-  font-family: 'Lato', sans-serif;
+.markdown {
+  @apply leading-relaxed text-sm;
 }
 
-.blog-post-content {
-  font-size: 16px;
+@screen sm {
+  .markdown {
+    @apply text-base;
+  }
+}
+
+@screen lg {
+  .markdown {
+    @apply text-lg;
+  }
+}
+
+/* Headers */
+.markdown h1,
+.markdown h2 {
+  @apply text-xl my-6 font-semibold;
+}
+.markdown h3,
+.markdown h4,
+.markdown h5,
+.markdown h6 {
+  @apply text-lg my-3 font-semibold;
+}
+
+@screen sm {
+  .markdown h1,
+  .markdown h2 {
+    @apply text-2xl;
+  }
+  .markdown h3,
+  .markdown h4,
+  .markdown h5,
+  .markdown h6 {
+    @apply text-xl;
+  }
+}
+
+/* Links */
+.markdown a {
+  @apply text-blue-600;
+}
+.markdown a:hover {
+  @apply underline;
+}
+/* Paragraph */
+.markdown p {
+  @apply mb-4;
   line-height: 2;
 }
-
-.blog-post-content h1 {
-  line-height: 1.2;
+/* Lists */
+.markdown ul,
+.markdown ol {
+  @apply mb-4 ml-8;
+  line-height: 2;
+}
+.markdown li > p,
+.markdown li > ul,
+.markdown li > ol {
+  @apply mb-0;
+}
+.markdown ol {
+  @apply list-decimal;
+}
+.markdown ul {
+  @apply list-disc;
+}
+/* Blockquotes */
+.markdown blockquote {
+  @apply p-2 mx-6 bg-gray-100 mb-4 border-l-4 border-gray-400 italic;
+}
+.markdown blockquote > p {
+  @apply mb-0;
+}
+/* Tables */
+.markdown td,
+.markdown th {
+  @apply px-2 py-1 border border-gray-400;
+}
+.markdown tr:nth-child(odd) {
+  @apply bg-gray-100;
+}
+.markdown table {
+  @apply mb-6;
 }
 
-.blog-post-container img {
+/* Wrap any inline highlights `that are really long`, but don't modify
+   the setting for codeblocks (inside ```), which are rendered in as:
+   <pre><code>...
+*/
+.markdown :not(pre) > code.language-text {
+  white-space: pre-line;
+}
+
+.blog-post-content img {
   display: block;
   margin-left: auto;
   margin-right: auto;
-}
-
-.blog-post-header {
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-
-.blog-post-header-tags {
-  display: flex;
-  justify-content: flex-end;
-}
-
-@media only screen and (max-width: 600px) {
-  .blog-post-header {
-    grid-template-columns: 1fr;
-  }
-
-  .blog-post-header-tags {
-    justify-content: flex-start;
-  }
 }
