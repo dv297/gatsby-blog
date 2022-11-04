@@ -14,22 +14,23 @@ const BlogPostTemplate = props => {
   return (
     <Layout>
       <DefaultPageContainer>
-        <div className="blog-post-container">
-          <div className="blog-post">
-            <h1 className="blog-post-title">{post.frontmatter.title}</h1>
-            <div className="blog-post-header">
-              <small className="blog-post-header-date">
+        <div>
+          <div>
+            <h1 className="mb-6 text-4xl font-bold">
+              {post.frontmatter.title}
+            </h1>
+            <div className="flex flex-col md:flex-row">
+              <small className="mb-2 flex-1 md:mb-0">
                 {post.frontmatter.date}
               </small>
-              <small className="blog-post-header-tags">
-                Tags: {post.frontmatter.tags.join(", ")}
-              </small>
+              <small>Tags: {post.frontmatter.tags.join(", ")}</small>
             </div>
-            <div>
-              <small>Time to Read: {post.timeToRead} minutes</small>
-            </div>
+            <small>Time to Read: {post.timeToRead} minutes</small>
             <div className="blog-post-content">
-              <div dangerouslySetInnerHTML={{ __html: post.html }} />
+              <div
+                dangerouslySetInnerHTML={{ __html: post.html }}
+                className="markdown"
+              />
             </div>
           </div>
         </div>

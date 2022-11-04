@@ -36,7 +36,7 @@ The project itself was nothing particularly special: Create a "Bejeweled" game w
 gems and tasked with creating rows or columns of 3 or more matching gems. The original Bejeweled looked something like
 this.
 
-![Screenshot of the original Bejeweled game](./bejeweled-original.png)
+<img alt="Screenshot of the original Bejeweled game" src="./bejeweled-original.png"/>
 
 It's not your traditional "web development" project and what I made probably isn't going to impress any engineering
 managers looking to potentially hire me. But working on this project got me thinking about "learning projects" in
@@ -155,7 +155,7 @@ example, my next thought went into "what are the performance implications of my 
 
 I opened the React Dev Tools, and enabled the "Highlight updates when component renders" option.
 
-![Screenshot of the React Dev Tools showing the "Highlight updates when component renders" option](./react-dev-tool.png "React Dev Tools")
+<img alt="Screenshot of the React Dev Tools showing the &quot;Highlight updates when component renders&quot; option" src="./react-dev-tool.png" title="React Dev Tools"/>
 
 From there, I played with the application.
 
@@ -170,7 +170,7 @@ After some minor tweaks, I finally got the behavior that I wanted. Only the cell
 were re-rendering.
 <img alt="A video recording demonstrating the behavior of the game after performance changes" height="400" src="./after-perf-changes.gif" title="&#39;After the performance changes&#39;" width="399"/>
 
-And to me, that's one of the beauty of learning projects. You're able to able to continue learning the material at
+And to me, that's one of the beauty of learning projects. You're able to continue learning the material at
 deeper and deeper levels through a codebase you're already familiar with.
 
 ## Conclusion
