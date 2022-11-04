@@ -96,6 +96,7 @@
 }
 
 .blog-post-content img {
+  @apply my-12;
   display: block;
   margin-left: auto;
   margin-right: auto;

@@ -1,6 +1,7 @@
-import React from "react"
+import React, { useState } from "react"
 import { graphql } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
+import FsLightbox from "fslightbox-react"
 
 import DefaultPageContainer from "../components/DefaultPageContainer/DefaultPageContainer"
 import Pill from "../components/Pill/Pill"
@@ -15,16 +16,51 @@ const getPillList = list => (
   </div>
 )
 
-const ProjectListing = ({ title, description, technologies, image }) => {
+const ProjectListing = ({
+  title,
+  description,
+  technologies,
+  image,
+  additionalImages,
+}) => {
+  const [toggler, setToggler] = useState(false)
+
   return (
-    <section className="mb-20 flex flex-col gap-8 lg:mb-16 xl:flex-row">
-      <div className="flex-1">
-        <h2 className="mb-4 text-3xl font-semibold">{title}</h2>
-        <div className="mb-4">{description}</div>
-        <p className="mb-4 text-lg font-bold">Built with:</p>
-        {getPillList(technologies)}
+    <section className="mb-12">
+      <div className="flex flex-col gap-8 xl:flex-row">
+        <div className="flex-1">
+          <h2 className="mb-4 text-3xl font-semibold">{title}</h2>
+          <div className="mb-4">{description}</div>
+          <p className="mb-4 text-lg font-bold">Built with:</p>
+          {getPillList(technologies)}
+        </div>
+        <button
+          className="pointer-cursor flex flex-1 items-center justify-center focus:ring-4 focus:ring-blue-600 focus:ring-opacity-50"
+          onClick={() => setToggler(!toggler)}
+        >
+          {image}
+        </button>
+        <FsLightbox
+          toggler={toggler}
+          sources={[
+            <div>{image}</div>,
+            ...(additionalImages
+              ? additionalImages.map(image => <div>{image}</div>)
+              : []),
+          ]}
+        />
       </div>
-      <div className="flex flex-1 items-center justify-center">{image}</div>
+      {additionalImages ? (
+        <div className="hide-scroll-bar mt-8 flex overflow-x-scroll pb-4">
+          <div className="flex flex-nowrap gap-8">
+            {additionalImages.map(image => (
+              <button className="w-80" onClick={() => setToggler(!toggler)}>
+                {image}
+              </button>
+            ))}
+          </div>
+        </div>
+      ) : null}
     </section>
   )
 }
@@ -40,7 +76,13 @@ const Resume = ({ data, location }) => {
           <p>
             For code for the following project as well as more projects that
             I've worked on, visit my{" "}
-            <a href="https://github.com/dv297">Github profile</a>.
+            <a
+              href="https://github.com/dv297"
+              className="text-blue-600 underline"
+            >
+              Github profile
+            </a>
+            .
           </p>
         </div>
         <ProjectListing
@@ -51,6 +93,16 @@ const Resume = ({ data, location }) => {
               alt="Screenshot of Planner application"
             />
           }
+          additionalImages={[
+            <StaticImage
+              src="../images/planner-2.png"
+              alt="Screenshot of Planner application"
+            />,
+            <StaticImage
+              src="../images/planner-3.png"
+              alt="Screenshot of Planner application"
+            />,
+          ]}
           description={
             <p className="leading-6">
               An application to help teams breakdown and coordinate the tasks

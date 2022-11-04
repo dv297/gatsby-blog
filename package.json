@@ -8,6 +8,7 @@
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
   "dependencies": {
+    "fslightbox-react": "^1.6.2-2",
     "gatsby": "^4.24.4",
     "gatsby-plugin-feed": "^4.24.0",
     "gatsby-plugin-google-fonts": "^1.0.1",
