@@ -131,7 +131,7 @@ const BlogIndex = () => {
           <span className="text-3xl text-center w-full">
             Catch up with me on my socials.
           </span>
-          <div className="h-full flex-shrink flex-row items-center justify-center gap-6 md:flex md:flex-row">
+          <div className="flex flex-row items-center justify-center gap-8">
             <SocialMediaLink
               to="https://twitter.com/TheDanielVu"
               title="Twitter"
