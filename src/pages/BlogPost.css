@@ -40,7 +40,7 @@
 }
 
 .markdown {
-  @apply text-xl md:text-base
+  @apply text-lg md:text-base
 }
 
 /* Links */
