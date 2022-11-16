@@ -39,7 +39,7 @@ const BlogIndex = () => {
       <div className="h-full w-full">
         <div className="max-w-screen-2xl mx-auto flex flex-col mb-12 items-center">
           <div className="w-full flex flex-col items-center mb-16">
-            <h1 className="text-2xl lg:text-5xl lg:text-8xl text-white mb-8">
+            <h1 className="text-2xl lg:text-6xl text-white mb-8">
               Hi, I'm Daniel Vu!
             </h1>
             <StaticImage
@@ -51,26 +51,26 @@ const BlogIndex = () => {
           <div className="w-full flex flex-col items-center">
             <motion.ul variants={container} initial="hidden" animate="show">
               <motion.li
-                className="mb-6 text-xl lg:text-4xl text-white text-extrabold text-center"
+                className="mb-6 text-xl lg:text-3xl text-white text-extrabold text-center"
                 variants={item}
               >
                 I like to spend time improving as a...
               </motion.li>
 
               <motion.li
-                className="mb-12 text-3xl lg:text-6xl text-white text-extrabold text-center"
+                className="mb-12 text-3xl lg:text-4xl text-white text-extrabold text-center"
                 variants={item}
               >
                 Developer,
               </motion.li>
               <motion.li
-                className="mb-12 text-3xl lg:text-6xl text-white text-extrabold text-center"
+                className="mb-12 text-3xl lg:text-4xl text-white text-extrabold text-center"
                 variants={item}
               >
                 Musician,
               </motion.li>
               <motion.li
-                className="mb-12 text-3xl lg:text-6xl text-white text-extrabold text-center"
+                className="mb-12 text-3xl lg:text-4xl text-white text-extrabold text-center"
                 variants={item}
               >
                 And Educator.
