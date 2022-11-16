@@ -1,6 +1,7 @@
 .pill {
   max-height: 24px;
   width: fit-content;
+  background-color: #002b6a;
   color: #FFF;
   font-size: medium;
   border-radius: 5px;

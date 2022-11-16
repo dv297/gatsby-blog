@@ -76,7 +76,7 @@ const Projects = () => {
             I've worked on, visit my{" "}
             <a
               href="https://github.com/dv297"
-              className="text-sky-600 underline"
+              className="text-sky-400 underline"
             >
               Github profile
             </a>

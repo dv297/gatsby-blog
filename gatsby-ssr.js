@@ -5,5 +5,5 @@
  */
 
 exports.onRenderBody = ({ setHtmlAttributes }) => {
-  setHtmlAttributes({ lang: `en`, class: "dark" })
+  setHtmlAttributes({ lang: `en` })
 }
