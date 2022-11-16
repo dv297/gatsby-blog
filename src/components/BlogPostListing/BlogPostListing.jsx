@@ -6,7 +6,7 @@ import Pill from "../../components/Pill/Pill"
 const BlogPostListing = ({ post }) => {
   return (
     <div className="mb-4 flex flex-col border-b-2 border-gray-100 pb-8">
-      <Link to={post.fields.slug} className="text-4xl text-blue-800">
+      <Link to={post.fields.slug} className="text-4xl text-sky-600 mb-2">
         {post.frontmatter.title}
       </Link>
       <div className="mb-2">{post.frontmatter.description}</div>
