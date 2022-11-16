@@ -39,6 +39,10 @@
   }
 }
 
+.markdown {
+  @apply text-lg md:text-base
+}
+
 /* Links */
 .markdown a {
   @apply text-blue-600;

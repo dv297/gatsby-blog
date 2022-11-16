@@ -1,12 +1,10 @@
 .pill {
   max-height: 24px;
   width: fit-content;
-  background-color: #002760;
+  background-color: #002b6a;
   color: #FFF;
   font-size: medium;
   border-radius: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
   margin-right: 5px;
   margin-top: 5px;
 }

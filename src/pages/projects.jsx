@@ -65,11 +65,9 @@ const ProjectListing = ({
   )
 }
 
-const Resume = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata?.title || `Title`
-
+const Projects = () => {
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout>
       <DefaultPageContainer>
         <div className="mb-8">
           <h1 className="mb-4 text-3xl font-bold">Projects</h1>
@@ -78,7 +76,7 @@ const Resume = ({ data, location }) => {
             I've worked on, visit my{" "}
             <a
               href="https://github.com/dv297"
-              className="text-blue-600 underline"
+              className="text-sky-400 underline"
             >
               Github profile
             </a>
@@ -181,7 +179,7 @@ const Resume = ({ data, location }) => {
   )
 }
 
-export default Resume
+export default Projects
 
 export const Head = () => <Seo title="Projects" />
 

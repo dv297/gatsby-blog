@@ -27,16 +27,14 @@ const ResumeTechnologyList = ({ children }) => {
   )
 }
 
-const Resume = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata?.title || `Title`
-
+const Resume = () => {
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout>
       <DefaultPageContainer>
         <h1 className="mb-6 text-4xl font-bold">Resume</h1>
         <a
           href={withPrefix("/resume.pdf")}
-          className="mb-6 text-sm font-thin text-blue-700 underline"
+          className="mb-6 text-sm font-thin text-sky-400 underline"
         >
           Printable resume with full descriptions
         </a>
